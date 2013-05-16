@@ -1,0 +1,198 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+/**
+ * WMP theme for reveal.js.
+ * 
+ * Copyright (C) 2013, Christopher Miller @christophermllr
+ */
+@font-face {
+  font-family: 'League Gothic';
+  src: url("../../lib/font/league_gothic-webfont.eot");
+  src: url("../../lib/font/league_gothic-webfont.eot?#iefix") format("embedded-opentype"),
+       url("../../lib/font/league_gothic-webfont.woff") format("woff"),
+       url("../../lib/font/league_gothic-webfont.ttf") format("truetype"),
+       url("../../lib/font/league_gothic-webfont.svg#LeagueGothicRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+  background-color: #F9F9F9;
+}
+
+.reveal {
+  font-family: "Lato", Times, "Times New Roman", serif;
+  font-size: 36px;
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  color: #333333;
+  border-left: 20px solid #003D6A;
+  background-image:url('../../img/wmp_sm.png');
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:50px 10px; 
+}
+
+::selection {
+  color: #000000;
+  background: #CCCCFF;
+  text-shadow: none;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  color: #003456;
+  font-family: "League Gothic", Impact, sans-serif;
+  line-height: 0.9em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: none;
+}
+
+.reveal h1 {
+  text-shadow: 0 1px 0 #cccccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbbbbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaaaaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.15);
+  text-align: left;
+}
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a:not(.image) {
+  color: #009087;
+  text-decoration: none;
+  -webkit-transition: color .15s ease;
+  -moz-transition: color .15s ease;
+  -ms-transition: color .15s ease;
+  -o-transition: color .15s ease;
+  transition: color .15s ease;
+}
+
+.reveal a:not(.image):hover {
+  color: #00BAAF;
+  text-shadow: none;
+  border: none;
+}
+
+.reveal .roll span:after {
+  color: #fff;
+  background: #00BAAF;
+}
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img {
+  margin: 15px 0px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 4px solid #CCC;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  -ms-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+.reveal a:hover img {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #00BAAF;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+ 
+.diamond {
+  fill:rgb(6, 54, 101);
+}
+.diamond.enabled {
+  fill:rgb(249, 179, 16);
+}
+ 
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-down.enabled:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  /*background: rgba(157, 215, 69, 0.2);*/
+  background: rgba(0, 202, 194, 0.2);
+}
+
+.reveal .progress span {
+  /*background: #9DD745;*/
+  background: #00CAC2;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -o-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+/*********************************************
+ * MISC
+ *********************************************/
+
+pre code {
+  display: block;
+  background: white;
+  color: #4d4d4c;
+  font-family: Menlo, Monaco, Consolas, monospace;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+ul {
+  margin: 0.75em 0;
+  padding: 0 1em;
+  list-style: none !important;
+}
+li:before { 
+  content: "";
+  display: block;
+  height: 13px;
+  width: 13px;
+  background-image:  url("../../img/diamond.png");
+  background-repeat: no-repeat;
+  left: -.7em;
+  top: .8em;
+  position: relative;
+}
+
+.reveal .progress.beerTracker span:after {
+  width: 50px;
+  height: 50px;
+  content: "";
+  background-image: url("../../img/beer.png");
+}
+
+footer {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: -0.02em;
+  bottom: 0;
+  color: #999;
+  font-size: 8pt;
+  padding: 5px 0;
+  position: fixed;
+  text-align: left;
+  margin-left:50px;
+  width: 100%;
+}

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Modern JavaScript Frameworks</title>
+        <meta name="description" content="A presentation over many of the currently popular JavaScript frameworks in use today." />
+        <meta name="author" content="Brett Davis, Christopher Miller, Kevin Kinnebrew, Letteer Lewis" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="stylesheet" href="css/reveal.min.css" />
+        <link rel="stylesheet" href="css/theme/wmp.css" id="theme" />
+        <link rel="stylesheet" href="lib/css/tomorrow.css" />
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Modern JavaScript Frameworks</h1>
+                    <p style="text-align: left;">feature Underscore, jQuery, Knockout, Backbone, Angular, Bootstrap, and Clementine</p>
+                </section>
+                <section>
+                    <h2>Introduction</h2>
+                    <div style="text-align: left;">
+                        <ul>
+							<li>Terminology Sync Up</li>
+                            <li>Evolution of Frameworks</li>
+							<li>Individual Frameworks</li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+					<section>
+						<h1>Terminology Sync Up</h1>
+					</section>
+					<section>
+						<div style="text-align: left;">
+							<h2>MVC: Model-View-Controller</h2>
+							<ul>
+								<li>M - Application data, business rules, logic, and functions</li>
+								<li>V - A representation of data, such as a web page.</li>
+								<li>C - Mediates input, converting it to commands for the model or view</li>                            
+							</ul>
+						</div>
+					</section>
+					<section>
+						<h2>MVVM: Model-View-ViewModel</h2>
+						<h3>Targeted to UI development - data binding, interaction logic</h3>
+						<ul>
+							<li>M - The real state of content</li>
+							<li>V - Elements displayed by the GUI such as buttons, labels, and other controls</li>
+							<li>VM - Acts as a converter that changes model information into view information and passes commands from the view into the model</li>
+						</ul>
+					</section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Evolution of Frameworks</h1>
+                    </section>
+                    <section>
+                        <h2>DOM Manipulation</h2>
+                        <div style="text-align: left;">
+                            <ul>
+                                <li>Early frameworks focused on accessing the DOM (the 'query' in jQuery)</li>
+                                <li>Many added utility functions for animation, cross-browser AJAX, templating</li>
+                                <li>jQuery beat out other similar tools such as MooTools, Prototype to become nearly ubiquitous</li>   
+                            </ul>
+                            <br />
+                        </div>
+                    </section>
+                    <section>
+                        <h2>UI Widgetization/Frameworks</h2>
+                        <div style="text-align: left;">
+                            <ul>
+                                <li>jQuery UI, ExtJS, Kendo UI</li>
+                                <li>Focused on packaging re-useable interactive UI components</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Web Application Frameworks</h2>
+                        <div style="text-align: left;">
+                            <ul>
+                                <li>Knockout</li>
+                                <li>Backbone.js</li>
+								<li>AngularJS</li>
+								<li>Batman.js (lol)</li>
+								<li>Ember.js</li>
+                            </ul>
+                        </div>
+						<br/>
+						<p style="text-align: left;">
+							Mature JavaScript Frameworks designed to facilitate building MVVM web applications (usually include templating, ajax crud, model binding)
+						</p>
+                    </section>
+                    <section>
+                        <h2>Pure JavaScript Libraries</h2>
+                        <div style="text-align: left;">
+                            <ul>
+                                <li>Underscore.js</li>
+								<li>MochiKit</li>
+								<li>Socket.io</li>
+                            </ul>
+                        </div>
+						<p style="text-align: left;">
+						These tend to small, special purpose libraries. Underscore focuses on providing LINQ-like array 
+						helpers and transforms along with some other helpful tools such as templating and function throttling.
+						</p>
+                    </section>
+                </section>
+                <section>
+					<section>
+						<h1>Knockout</h1>
+					</section>
+                    <section>
+						<ul>
+							<li>Focus on bi-directional view model binding</li>
+							<li>Robust Templating</li>
+							<li>Good for building complex forms</li>
+						</ul>
+					</section>
+                </section>
+                <section>
+                    <h2>Thanks!</h2>
+                    <div>
+                        <br />
+                    </div>
+                </section>
+            </div>
+        </div>
+        <footer>
+          &copy; 2013 West Monroe Partners &nbsp;&nbsp;|&nbsp;&nbsp; Reproduction and distribution without West Monroe Partners prior consent prohibited
+        </footer>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+            	controls: true,
+            	progress: true,
+            	history: true,
+            	center: true,
+            
+            	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            	transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+            
+            	// Optional libraries used to extend on reveal.js
+            	dependencies: [
+            		{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            		{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            		{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+            	]
+            });
+            
+        </script>
+    </body>
+</html>
