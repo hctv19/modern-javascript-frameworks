@@ -72,6 +72,7 @@
                             <li>Mustache</li>
                             <li>EJS</li>
                             <li>HAML</li>
+							<li>Dust</li>
                         </ul>
                     </td>
                     <td class="ui-frameworks">
@@ -313,6 +314,8 @@ App.IndexRoute = Ember.Route.extend({
                         <h2>Some Basics</h2>
                         <ul>
                             <li>"$scope" variable</li>
+							<li>$scope is a special object that is passed into the controller function by the AngularJS framework itself.</li>
+							<li>Its role is to serve as a bridge between your controller and your view.</li>
                             <li>"$http" variable</li>
                         </ul>
                     </section>
@@ -428,7 +431,56 @@ todoApp.controller('TodoController', function($scope, $http) {
                             <li>It's lightweight, 21kb or 7kb gzipped</li>
                         </ul>
                     </section>
-                    
+					
+					<section>
+						<h1>Underscore</h1>
+						<p>A "utility-belt library for JavaScript" that provides a lot of the functional programming support and LINQ-like syntax for dealing with arrays.</p>
+					</section>
+					<section>
+						<h2>Usages</h2>
+						<ul>
+							<li>Templating</li>
+							<li>Array Manipulations (each, any, map, where, find, first, last, unique)*</li>
+							<li>Helper functions to allow easy throttling of function calls</li>
+							<li>HTML escaping, unescaping</li>
+							<li>Quick type checks; isNaN, isBool, isString, isDate, etc</li>
+							<li>Small! 13kB minified (jQuery is over 90kB)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Examples</h2>
+<pre><code>// _.each
+var nums = [1,2,3,4,5,6];
+_.each(nums, function(num, i) { print num; });  // 1,2,3,4,5,6
+
+// _.find
+_.find(people, function(person) {
+    return person.firstName == "Brett";
+}); //Returns the first matching item in the array
+
+// _.filter
+var evenNums = _.filter(nums, function(num) {
+    return num % 2 == 0;
+});
+</code></pre>
+                    </section>
+					<section>
+						<h2>More Examples</h2>
+<pre><code>// _.where -- Slightly different than _.filter
+_.where(people, {firstName: "John", age: 20});
+[{firstName: "John", lastName: "Arndt", age: 20},
+ {firstName: "John", lastName: "Brown", age: 20}]
+ 
+// _.template
+//This pre-compiles the template.
+var tmpl = _.template("Hi <%=title%>, welcome to <%=appName%>");
+
+_.each(people, function(person) { 
+    $('#greetings').append(tmpl({title: person.firstName, appName: app.name});
+});
+</code></pre>
+					</section>
+					
                     <section>
 						<h1>Knockout</h1>
 					</section>
@@ -475,6 +527,18 @@ todoApp.controller('TodoController', function($scope, $http) {
 });
 </code></pre>
                     </section>
+					<section>
+						<h2>Mocha</h2>
+						<img src="img/mocha.png" />
+					</section>
+					<section>
+						<h2>CSS Lint</h2>
+						<img src="img/csslint.png" />
+					</section>
+					<section>
+						<h2>JS Hint</h2>
+						<img src="img/jshint.png" />
+					</section>
                     <section>
                         <h1>PhantomJS</h1>
                         <p>A headless command-line webkit browser for running automated unit tests.</p>
@@ -505,8 +569,19 @@ todoApp.controller('TodoController', function($scope, $http) {
                 </section>
                 
                 <section>
+				
 					<section class="landscape" data-active="pseudo-languages">
 					</section>
+					
+					<section>
+						<h1>Coffeescript</h1>
+						<p>A Python-like programming language that transcompiles down to JavaScript.</p>
+					</section>
+					<section>
+						<h2>Examples</h2>
+						<a href="http://coffeescript.org/" target="_blank">CoffeeScript.org</a>
+					</section>
+					
                 </section>
                 
                 <section>
@@ -531,7 +606,21 @@ todoApp.controller('TodoController', function($scope, $http) {
                 </section>
                 
                 <section>
+				
 					<section class="landscape" data-active="package-managers">
+					</section>
+					
+					<section>
+						<h1>NPM</h1>
+						<p>A command line package manager for NodeJS applications and libraries.</p>
+					</section>
+					<section>
+						<h2>Commands</h2>
+						<ul>
+							<li>npm install</li>
+							<li>npm ls</li>
+							<li>npm update</li>
+						</ul>
 					</section>
                 </section>
                 
@@ -541,9 +630,38 @@ todoApp.controller('TodoController', function($scope, $http) {
                 </section>
                 
                 <section>
+				
 					<section class="landscape" data-active="node">
 					</section>
+					
+					<section>
+						<h1>Node.js</h1>
+						<p>Node's goal is to provide an easy way to build scalable network programs.</p>
+					</section>
+					<section>
+						<h2>Example</h2>
+<pre><code>var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(1337, "127.0.0.1");
+console.log('Server running at http://127.0.0.1:1337/');
+</code></pre>
+					</section>
+					<section>
+						<p><a href="http://christophermllr.github.io/rapid-prototyping/" target="_blank">Rapid Prototyping with Node.js</a></p>
+					</section>
+					
                 </section>
+				
+				<section>
+					<h2>Next Steps</h2>
+					<ul>
+						<li>Future Insights Hackathon - "IntersAct"</li>
+						<li>Planning a Friday-afternoon workshop to build the UI with Clementine</li>
+						<li>Future workshop exploring other frameworks from this presentation</li>
+					</ul>
+				</section>
                 
                 <section>
                     <h2>Thanks!</h2>
