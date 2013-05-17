@@ -1,74 +1,720 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Modern JavaScript Frameworks</title>
+        <meta name="description" content="A presentation over many of the currently popular JavaScript frameworks in use today." />
+        <meta name="author" content="Brett Davis @hctv19, Kevin Kinnebrew @brew20k, Letteer Lewis @letteer, Christopher Miller @christophermllr" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="stylesheet" href="css/reveal.min.css" />
+        <link rel="stylesheet" href="css/theme/wmp.css" id="theme" />
+        <link rel="stylesheet" href="lib/css/tomorrow.css" />
+        <script src="lib/js/jquery-2.0.0.min.js"></script>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <script id="landscapeTemplate" type="text/html"><h2>JavaScript Tools</h2>
+            <table>
+                <tr>
+                    <td class="dom-abstraction">
+                        <div>DOM Abstraction</div>
+                        <ul>
+                            <li>Prototype</li>
+                            <li>YUI</li>
+                            <li>jQuery</li>
+                            <li>Mootools</li>
+                            <li>ExtJS</li>
+                            <li>Script.aculo.us</li>
+                            <li>Dojo</li>
+                        </ul>
+                    </td>
+                    <td class="mv-frameworks">
+                        <div>MV? Frameworks</div>
+                        <ul>
+                            <li>Ember</li>
+                            <li>Angular</li>
+                            <li>Backbone</li>
+                            <li>Spine</li>
+                            <li>CanJS</li>
+                        </ul>
+                    </td>
+                    <td class="utility-libraries">
+                        <div>Utility Libraries</div>
+                        <ul>
+                            <li>Clementine</li>
+                            <li>Underscore</li>
+                            <li>Knockout</li>
+                            <li>Socket.io</li>
+                            <li>RequireJS</li>
+                            <li>Lodash</li>
+                        </ul>
+                    </td>
+                    <td class="testing-tools">
+                        <div>Testing Tools</div>
+                        <ul>
+                            <li>Mocha</li>
+                            <li>QUnit</li>
+                            <li>Jasmine</li>
+                            <li>JSHint</li>
+                            <li>CSSLint</li>
+                            <li>Chai</li>
+                            <li>ExpectJS</li>
+                            <li>PhantomJS</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="templating">
+                        <div>Templating</div>
+                        <ul>
+                            <li>Handlebars</li>
+                            <li>Mustache</li>
+                            <li>EJS</li>
+                            <li>HAML</li>
+							<li>Dust</li>
+                        </ul>
+                    </td>
+                    <td class="ui-frameworks">
+                        <div>Mobile UI Frameworks</div>
+                        <ul>
+                            <li>jQuery Mobile</li>
+                            <li>SenchaTouch</li>
+                            <li>KendoUI</li>
+                        </ul>
+                    </td>
+                    <td class="ui-component-libraries">
+                        <div>UI Component Libraries</div>
+                        <ul>
+                            <li>jQuery UI</li>
+                            <li>Bootstrap</li>
+                            <li>Ratchet</li>
+                        </ul>
+                    </td>
+                    <td class="pseudo-languages">
+                        <div>Pseudo Languages</div>
+                        <ul>
+                            <li>Coffeescript</li>
+                            <li>Typescript</li>
+                            <li>Dart</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="build-tools">
+                        <div>Build Tools</div>
+                        <ul>
+                            <li>Grunt</li>
+                            <li>Yeoman</li>
+                        </ul>
+                    </td>
+                    <td class="package-managers">
+                        <div>Package Managers</div>
+                        <ul>
+                            <li>NPM</li>
+                            <li>Bower</li>
+                        </ul>
+                    </td>
+                    <td class="preprocessors">
+                        <div>Preprocessors / Mixin Libraries</div>
+                        <ul>
+                            <li>SASS</li>
+                            <li>LESS</li>
+                            <li>Bourbon</li>
+                            <li>Preboot</li>
+                        </ul>
+                    </td>
+                    <td class="node">
+                        <div>None of the Above!</div>
+                        <ul>
+                            <li>Node.js</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </script>
+        <script>
+            
+            function jToEl(el) {
+                var div = document.createElement('div');
+                div.appendChild(el.cloneNode(true));
+                var contents = div.innerHTML;
+                div = null;
+                return contents;
+            }
+            
+            $(document).ready(function() {
+                var landscapeText = $("#landscapeTemplate").text();
+                $("section.landscape").each(function() {
+                    var activeClass = $(this).attr("data-active");
+                    var $landscapeText = $(landscapeText);
+                    if (activeClass) {
+                        $landscapeText.find("td." + activeClass).addClass("active");
+                    }
+                    $(this).html(jToEl($landscapeText[0]) + jToEl($landscapeText[2]));
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                
+                <section>
+                    <h1>Modern JavaScript Frameworks</h1>
+                    <p>featuring Underscore, jQuery, Knockout, Backbone, Angular, Bootstrap, Clementine, and more!</p>
+                </section>
+                
+                <section>
+                    <h2>Presentation Layout</h2>
+                    <ul>
+                        <li>JavaScript Evolution</li>
+                        <li>Current Landscape</li>
+                        <li>Individual Tools</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <section>
+                        <h1>JavaScript Evolution</h1>
+                    </section>
+                    <section>
+                        <h2>DOM Manipulation</h2>
+                        <ul>
+                            <li>Early frameworks focused on accessing the DOM (the 'query' in jQuery)</li>
+                            <li>Many added utility functions for animation, cross-browser AJAX, templating</li>
+                            <li>jQuery beat out other similar tools such as MooTools, Prototype to become nearly ubiquitous</li>
+                            <li>No one was thinking true "front-end architecture" yet</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>UI Widgetization/Frameworks</h2>
+                        <ul>
+                            <li>Focused on packaging re-useable interactive UI components</li>
+                            <li>jQuery UI, ExtJS, Kendo UI, Bootstrap</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Web Application Frameworks</h2>
+                        <ul>
+                            <li>Mature JavaScript Frameworks designed to facilitate building MVVM web applications</li>
+                            <li>Usually include templating, AJAX CRUD, and model binding</li>
+                            <li>Knockout, Backbone.js, AngularJS, Batman.js, Ember.js</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Pure JavaScript Libraries</h2>
+                        <ul>
+                            <li>Small, special purpose libraries</li>
+                            <li>Underscore.js: LINQ-like array helpers and transforms along with some other helpful tools such as templating and function throttling</li>
+                            <li>MochiKit</li>
+                            <li>Socket.io: Enables realtime web applications via WebSockets with fallbacks to Flash, JSONP polling, and AJAX long polling</li>
+                        </ul>
+                    </section>
+                </section>
+                
+                <section>
+					<section class="landscape" data-active="">
+					</section>
+                </section>
+                
+                <section>
+					<section class="landscape" data-active="dom-abstraction">
+					</section>
+                </section>
+                
+                <section>
+                    
+					<section class="landscape" data-active="mv-frameworks">
+					</section>
+                    
+                    <section>
+						<h1>MVC, MVVM, MVWTF</h1>
+					</section>
+                    <section>
+                        <h2>MVC: Model-View-Controller</h2>
+                        <ul>
+                            <li>M - Application data, business rules, logic, and functions</li>
+                            <li>V - A representation of data, such as a web page.</li>
+                            <li>C - Mediates input, converting it to commands for the model or view</li>                            
+                        </ul>
+					</section>
+					<section>
+						<h2>MVVM: Model-View-ViewModel</h2>
+						<ul>
+                            <li>Targeted to UI development - data binding, interaction logic</li>
+							<li>M - The real state of content</li>
+							<li>V - Elements displayed by the GUI such as buttons, labels, and other controls</li>
+							<li>VM - Acts as a converter that changes model information into view information and passes commands from the view into the model</li>
+						</ul>
+					</section>
+                    
+                    <section>
+                        <h1>Ember</h1>
+                        <p>A framework for creating <strong>ambitious</strong> web applications</p>
+                    </section>
+                    <section>
+                        <h2>Core Concepts</h2>
+                        <ul>
+                            <li>Templates(Handlebars) - user interface of your application</li>
+                            <li>Views - responsible for translating primitive events (like clicks, taps, and swipes) into semantic events</li>
+                            <li>Controllers - object that stores application state</li>
+                            <li>Models - stores persistent state that your application operates on and what gives it value to your users</li>
+                            <li>Router - responsible for managing application state</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>JavaScript Code</h2>
+<pre><code>App = Ember.Application.create();
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Modern-javascript-frameworks : KTS Presentation on Modern Javascript Frameworks" />
+App.Person = Ember.Object.extend({
+  firstName: null,
+  lastName: null,
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+  fullName: function() {
+    return this.get('firstName') + " " + this.get('lastName');
+  }.property('firstName', 'lastName')
+});
 
-    <title>Modern-javascript-frameworks</title>
-  </head>
+App.IndexRoute = Ember.Route.extend({
+  model: function() {
+    var people = [
+      App.Person.create({
+        firstName: "Tom",
+        lastName: "Dale"
+      }),
+      App.Person.create({
+        firstName: "Yehuda",
+        lastName: "Katz"
+      })
+    ];
+    return people;
+  }
+});</code></pre>
+                    </section>
+                    <section>
+                        <h2>Templates</h2>
+                        <pre><code>&lt;script type=&quot;text/x-handlebars&quot;&gt;<br/>  {{outlet}}<br/>&lt;/script&gt;<br/><br/>&lt;script type=&quot;text/x-handlebars&quot; id=&quot;index&quot;&gt;<br/>  &lt;h1&gt;People&lt;/h1&gt;<br/><br/>  &lt;ul&gt;<br/>  {{#each model}}<br/>    &lt;li&gt;Hello, &lt;b&gt;{{fullName}}&lt;/b&gt;!&lt;/li&gt;<br/>  {{/each}}<br/>  &lt;/ul&gt;<br/>&lt;/script&gt;</code></pre>
+                    </section>
+                    
+                    <section>
+                        <h1>AngularJS</h1>
+                        <p>"Superheroic JavaScript MVW Framework" - It's goal is to augment browser-based applications with model–view–controller (MVC) capability, in an effort to make both development and testing easier.</p>
+                    </section>
+                    <section>
+                        <h2>Features</h2>
+                        <ul>
+                            <li>Robust MVVM/MVC structured web application framework</li>
+                            <li>Templates, two-way databinding, AJAX helpers, dependency injection, etc.</li>
+                            <li>Decouple DOM manipulation from application logic. This improves the testability of the code</li>
+                            <li>Decouple the client side of an application from the server side</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Some Basics</h2>
+                        <ul>
+                            <li>"$scope" variable</li>
+							<li>$scope is a special object that is passed into the controller function by the AngularJS framework itself.</li>
+							<li>Its role is to serve as a bridge between your controller and your view.</li>
+                            <li>"$http" variable</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>ToDo App JavaScript Code</h2>
+<pre><code>var todoApp = angular.module('todoApp', []);
 
-  <body>
+todoApp.controller('TodoController', function($scope, $http) {
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/hctv19/modern-javascript-frameworks">View on GitHub</a>
+  $scope.todos = [];
 
-          <h1 id="project_title">Modern-javascript-frameworks</h1>
-          <h2 id="project_tagline">KTS Presentation on Modern Javascript Frameworks</h2>
+  // Get all todos
+  $http.get('/todos')
+    .success(function(todos) {
+      $scope.loaded = true;
+      $scope.todos = todos;
+    }).error(function(err) {
+      alert(err);
+    });
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/hctv19/modern-javascript-frameworks/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/hctv19/modern-javascript-frameworks/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+  $scope.addTodo = function(title) {
+    $http.post('/todos', {
+      title: title
+    }).success(function(todo) {
+      $scope.newTodoTitle = '';
+      $scope.todos.push(todo);
+    }).error(function(err) {
+      // Alert if there's an error
+      return alert(err.message || "an error occurred");
+    });
+  };
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+  $scope.changeCompleted = function(todo) {
+    // Update the todo
+    $http.put('/todos/' + todo.id, {
+      completed: todo.completed
+    }).error(function(err) {
+      return alert(err.message || (err.errors && err.errors.completed) || "an error occurred");
+    });
+  };
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+  $scope.removeCompletedItems = function() {
+    $http.get('/todos', {
+      params: {
+        completed: true
+      }
+    }).success(function(todos) {
+      todos.forEach(function(t) { deleteTodo(t); });
+    });
+  };
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+  function deleteTodo(todo) {
+    $http.delete('/todos/' + todo.id, {
+      params: {
+        completed: true
+      }
+    }).success(function() {
+      // Find the index of an object with a matching id
+      var index = $scope.todos.indexOf(
+          $scope.todos.filter(function(t) {
+            return t.id === todo.id;
+          })[0]);
+
+      if (index !== -1) {
+        $scope.todos.splice(index, 1);
+      }
+    }).error(function(err) {
+      alert(err.message || "an error occurred");
+    });
+  }
+
+});
 </code></pre>
+                    </section>
+                    <section>
+                        <h2>ToDo App HTML</h2>
+<pre><code>&lt;html ng-app=&quot;todoApp&quot;&gt;<br/>&lt;head&gt;&lt;!--import CSS, AngularJS, and Controller--&gt;&lt;/head&gt;<br/>&lt;body&gt;<br/>  &lt;div ng-controller=&quot;TodoController&quot; ng-cloak&gt;<br/>    &lt;h1&gt;Tasks&lt;/h1&gt;<br/>    &lt;p id=&quot;empty&quot; ng-hide=&quot;todos.length || !loaded&quot;&gt;You don't have any todos! Add one now:&lt;/p&gt;<br/>    &lt;ul id=&quot;todos&quot;&gt;<br/>      &lt;li ng-repeat=&quot;todo in todos&quot;&gt;<br/>        &lt;label class=&quot;checkbox&quot;&gt;<br/>          &lt;input type=&quot;checkbox&quot; ng-model=&quot;todo.completed&quot; ng-change=&quot;changeCompleted(todo)&quot; /&gt;<br/>          {{todo.title}}<br/>        &lt;/label&gt;<br/>      &lt;/li&gt;<br/>    &lt;/ul&gt;<br/>    &lt;form class=&quot;form-inline&quot;&gt;<br/>      &lt;input id=&quot;todo-title&quot; type=&quot;text&quot; ng-model=&quot;newTodoTitle&quot; /&gt;<br/>      &lt;button id=&quot;add-btn&quot; class=&quot;btn btn-success&quot; ng-click=&quot;addTodo(newTodoTitle)&quot;&gt;Add&lt;/button&gt;<br/>    &lt;/form&gt;<br/>    &lt;p&gt;<br/>      &lt;a href id=&quot;remove-completed-btn&quot; ng-click=&quot;removeCompletedItems()&quot;&gt;Remove completed items&lt;/a&gt;<br/>    &lt;/p&gt;<br/>  &lt;/div&gt;<br/>&lt;/body&gt;<br/>&lt;/html&gt;</code></pre>
+                    </section>
+                </section>
+                    
+				<section>
+                    <section class="landscape" data-active="utility-libraries">
+                    </section>
+                    
+                    <section>
+						<h1>Clementine</h1>
+                        <p>A lightweight set of tools for building pattern agnostic single-page web applications.</p>
+					</section>
+                    <section>
+                        <h2>What does it have?</h2>
+                        <ul>
+                            <li>"Object-oriented" inhertiable objects</li>
+                            <li>Subscriber pattern event mixin</li>
+                            <li>Module dependency management</li>
+                            <li>View controller tree w/DOM helpers</li>
+                            <li>RESTful AJAX service wrapper</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>What is it not?</h2>
+                        <ul>
+                            <li>An MVC framework</li>
+                            <li>A rigid design pattern to follow</li>
+                            <li>A library of UI widgets</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Why use it?</h2>
+                        <ul>
+                            <li>It's componentized, use as much or little as you want</li>
+                            <li>Interoperates with any other frameworks and libraries</li>
+                            <li>Enforces clean decoupled client application design</li>
+                            <li>It's lightweight, 21kb or 7kb gzipped</li>
+                        </ul>
+                    </section>
+					
+					<section>
+						<h1>Underscore</h1>
+						<p>A "utility-belt library for JavaScript" that provides a lot of the functional programming support and LINQ-like syntax for dealing with arrays.</p>
+					</section>
+					<section>
+						<h2>Usages</h2>
+						<ul>
+							<li>Templating</li>
+							<li>Array Manipulations (each, any, map, where, find, first, last, unique)*</li>
+							<li>Helper functions to allow easy throttling of function calls</li>
+							<li>HTML escaping, unescaping</li>
+							<li>Quick type checks; isNaN, isBool, isString, isDate, etc</li>
+							<li>Small! 13kB minified (jQuery is over 90kB)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Examples</h2>
+<pre><code>// _.each
+var nums = [1,2,3,4,5,6];
+_.each(nums, function(num, i) { print num; });  // 1,2,3,4,5,6
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+// _.find
+_.find(people, function(person) {
+    return person.firstName == "Brett";
+}); //Returns the first matching item in the array
 
-<h3>Designer Templates</h3>
+// _.filter
+var evenNums = _.filter(nums, function(num) {
+    return num % 2 == 0;
+});
+</code></pre>
+                    </section>
+					<section>
+						<h2>More Examples</h2>
+<pre><code>// _.where -- Slightly different than _.filter
+_.where(people, {firstName: "John", age: 20});
+[{firstName: "John", lastName: "Arndt", age: 20},
+ {firstName: "John", lastName: "Brown", age: 20}]
+ 
+// _.template
+//This pre-compiles the template.
+var tmpl = _.template("Hi <%=title%>, welcome to <%=appName%>");
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+_.each(people, function(person) { 
+    $('#greetings').append(tmpl({title: person.firstName, appName: app.name});
+});
+</code></pre>
+					</section>
+					
+                    <section>
+						<h1>Knockout</h1>
+					</section>
+                    <section>
+						<ul>
+							<li>Focus on bi-directional view model binding</li>
+							<li>Robust Templating</li>
+							<li>Good for building complex forms</li>
+						</ul>
+					</section>
+                    
+                </section>
+                
+                <section>
+					<section class="landscape" data-active="testing-tools">
+					</section>
+                    
+                    <section>
+                        <h2>Mocha, QUnit, Jasmine, Chai, ExpectJS</h2>
+                        <p>TDD/BDD unit testing frameworks for front-end javascript.</p>
+                    </section>
+                    <section>
+                        <h2>Test Driven Development (Mocha)</h2>
+<pre><code>describe('#indexOf()', function(){
+    it('should return -1 when not present', function(){
+        [1,2,3].indexOf(4).should.equal(-1);
+    });
+});</code></pre>
+                    </section>
+                    <section>
+                        <h2>Behavior Driven Development (Mocha)</h2>
+<pre><code>suite('Array', function(){
+  
+  setup(function(){
+    // ...
+  });
 
-<h3>Rather Drive Stick?</h3>
+  suite('#indexOf()', function(){
+    test('should return -1 when not present', function(){
+      assert.equal(-1, [1,2,3].indexOf(4));
+    });
+  });
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Modern-javascript-frameworks maintained by <a href="https://github.com/hctv19">hctv19</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+});
+</code></pre>
+                    </section>
+					<section>
+						<h2>Mocha</h2>
+						<img src="img/mocha.png" />
+					</section>
+					<section>
+						<h2>CSS Lint</h2>
+						<img src="img/csslint.png" />
+					</section>
+					<section>
+						<h2>JS Hint</h2>
+						<img src="img/jshint.png" />
+					</section>
+                    <section>
+                        <h1>PhantomJS</h1>
+                        <p>A headless command-line webkit browser for running automated unit tests.</p>
+                    </section>
+                    <section>
+                        <h2>What does it have?</h2>
+                        <ul>
+                            <li>Webkit support with native DOM, CSS, JSON, Canvas, and SVG support.</li>
+                            <li>Use for running unit tests in the command line without a browser.</li>
+                        </ul>
+                    </section>
+                    
+                </section>
+                
+                <section>
+					<section class="landscape" data-active="templating">
+					</section>
+                </section>
+                
+                <section>
+					<section class="landscape" data-active="ui-frameworks">
+					</section>
+                </section>
+                
+                <section>
+				
+					<section class="landscape" data-active="ui-component-libraries">
+					</section>
+					
+					<section>
+						<h1>Bootstrap</h1>
+						<p>Sleek, intuitive, and powerful front-end framework for faster and easier web development.</p>
+					</section>
+					<section>
+						<h2>Features</h2>
+						<ul>
+							<li>Scaffolding</li>
+							<li>Base CSS</li>
+							<li>UI Components</li>
+							<li>JS Components</li>
+							<li>Responsive Media</li>
+							<li>Plugins</li>
+						</ul>
+					</section>
+					
+                </section>
+                
+                <section>
+				
+					<section class="landscape" data-active="pseudo-languages">
+					</section>
+					
+					<section>
+						<h1>Coffeescript</h1>
+						<p>A Python-like programming language that transcompiles down to JavaScript.</p>
+					</section>
+					<section>
+						<h2>Examples</h2>
+						<a href="http://coffeescript.org/" target="_blank">CoffeeScript.org</a>
+					</section>
+					
+                </section>
+                
+                <section>
+                    
+					<section class="landscape" data-active="build-tools">
+					</section>
+                    
+                    <section>
+                        <h1>Grunt</h1>
+                        <p>A javascript automated task runner written in NodeJS.</p>
+                    </section>
+                    <section>
+                        <h2>What does it have?</h2>
+                        <ul>
+                            <li>Running automated testing libraries</li>
+                            <li>Code linting and syntax checking</li>
+                            <li>File manipulating and minification</li>
+                            <li>Automated image compression</li>
+                            <li>Deployments</li>
+                        </ul>
+                    </section>
+                </section>
+                
+                <section>
+				
+					<section class="landscape" data-active="package-managers">
+					</section>
+					
+					<section>
+						<h1>NPM</h1>
+						<p>A command line package manager for NodeJS applications and libraries.</p>
+					</section>
+					<section>
+						<h2>Commands</h2>
+						<ul>
+							<li>npm install</li>
+							<li>npm ls</li>
+							<li>npm update</li>
+						</ul>
+					</section>
+                </section>
+                
+                <section>
+					<section class="landscape" data-active="preprocessors">
+					</section>
+                </section>
+                
+                <section>
+				
+					<section class="landscape" data-active="node">
+					</section>
+					
+					<section>
+						<h1>Node.js</h1>
+						<p>Node's goal is to provide an easy way to build scalable network programs.</p>
+					</section>
+					<section>
+						<h2>Example</h2>
+<pre><code>var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(1337, "127.0.0.1");
+console.log('Server running at http://127.0.0.1:1337/');
+</code></pre>
+					</section>
+					<section>
+						<p><a href="http://christophermllr.github.io/rapid-prototyping/" target="_blank">Rapid Prototyping with Node.js</a></p>
+					</section>
+					
+                </section>
+				
+				<section>
+					<h2>Next Steps</h2>
+					<ul>
+						<li>Future Insights Hackathon - "IntersAct"</li>
+						<li>Planning a Friday-afternoon workshop to build the UI with Clementine</li>
+						<li>Future workshop exploring other frameworks from this presentation</li>
+					</ul>
+				</section>
+                
+                <section>
+                    <h2>Thanks!</h2>
+                    <h4>Brett Davis <code>@hctv19</code></h4>
+                    <h4>Kevin Kinnebrew <code>@brew20k</code></h4>
+                    <h4>Letteer Lewis <code>@letteer</code></h4>
+                    <h4>Christopher Miller <code>@christophermllr</code></h4>
+                </section>
+            </div>
+        </div>
+        <footer>
+          &copy; 2013 West Monroe Partners &nbsp;&nbsp;|&nbsp;&nbsp; Reproduction and distribution without West Monroe Partners prior consent prohibited
+        </footer>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+            	controls: true,
+            	progress: true,
+            	history: true,
+            	center: true,
+            
+            	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            	transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+            
+            	// Optional libraries used to extend on reveal.js
+            	dependencies: [
+            		{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            		{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            		{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+            	]
+            });
+            
+        </script>
+    </body>
 </html>
