@@ -59,6 +59,8 @@
                             <li>JSHint</li>
                             <li>CSSLint</li>
                             <li>Chai</li>
+                            <li>ExpectJS</li>
+                            <li>PhantomJS</li>
                         </ul>
                     </td>
                 </tr>
@@ -73,7 +75,7 @@
                         </ul>
                     </td>
                     <td class="ui-frameworks">
-                        <div>UI Frameworks</div>
+                        <div>Mobile UI Frameworks</div>
                         <ul>
                             <li>jQuery Mobile</li>
                             <li>SenchaTouch</li>
@@ -103,7 +105,6 @@
                         <ul>
                             <li>Grunt</li>
                             <li>Yeoman</li>
-                            <li>PhantomJS</li>
                         </ul>
                     </td>
                     <td class="package-managers">
@@ -114,10 +115,12 @@
                         </ul>
                     </td>
                     <td class="preprocessors">
-                        <div>Preprocessors</div>
+                        <div>Preprocessors / Mixin Libraries</div>
                         <ul>
                             <li>SASS</li>
                             <li>LESS</li>
+                            <li>Bourbon</li>
+                            <li>Preboot</li>
                         </ul>
                     </td>
                     <td class="node">
@@ -220,8 +223,10 @@
                 </section>
                 
                 <section>
+                    
 					<section class="landscape" data-active="mv-frameworks">
 					</section>
+                    
                     <section>
 						<h1>MVC, MVVM, MVWTF</h1>
 					</section>
@@ -242,11 +247,188 @@
 							<li>VM - Acts as a converter that changes model information into view information and passes commands from the view into the model</li>
 						</ul>
 					</section>
+                    
+                    <section>
+                        <h1>Ember</h1>
+                        <p>A framework for creating <strong>ambitious</strong> web applications</p>
+                    </section>
+                    <section>
+                        <h2>Core Concepts</h2>
+                        <ul>
+                            <li>Templates(Handlebars) - user interface of your application</li>
+                            <li>Views - responsible for translating primitive events (like clicks, taps, and swipes) into semantic events</li>
+                            <li>Controllers - object that stores application state</li>
+                            <li>Models - stores persistent state that your application operates on and what gives it value to your users</li>
+                            <li>Router - responsible for managing application state</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>JavaScript Code</h2>
+<pre><code>App = Ember.Application.create();
+
+App.Person = Ember.Object.extend({
+  firstName: null,
+  lastName: null,
+
+  fullName: function() {
+    return this.get('firstName') + " " + this.get('lastName');
+  }.property('firstName', 'lastName')
+});
+
+App.IndexRoute = Ember.Route.extend({
+  model: function() {
+    var people = [
+      App.Person.create({
+        firstName: "Tom",
+        lastName: "Dale"
+      }),
+      App.Person.create({
+        firstName: "Yehuda",
+        lastName: "Katz"
+      })
+    ];
+    return people;
+  }
+});</code></pre>
+                    </section>
+                    <section>
+                        <h2>Templates</h2>
+                        <pre><code>&lt;script type=&quot;text/x-handlebars&quot;&gt;<br/>  {{outlet}}<br/>&lt;/script&gt;<br/><br/>&lt;script type=&quot;text/x-handlebars&quot; id=&quot;index&quot;&gt;<br/>  &lt;h1&gt;People&lt;/h1&gt;<br/><br/>  &lt;ul&gt;<br/>  {{#each model}}<br/>    &lt;li&gt;Hello, &lt;b&gt;{{fullName}}&lt;/b&gt;!&lt;/li&gt;<br/>  {{/each}}<br/>  &lt;/ul&gt;<br/>&lt;/script&gt;</code></pre>
+                    </section>
+                    
+                    <section>
+                        <h1>AngularJS</h1>
+                        <p>"Superheroic JavaScript MVW Framework" - It's goal is to augment browser-based applications with model–view–controller (MVC) capability, in an effort to make both development and testing easier.</p>
+                    </section>
+                    <section>
+                        <h2>Features</h2>
+                        <ul>
+                            <li>Robust MVVM/MVC structured web application framework</li>
+                            <li>Templates, two-way databinding, AJAX helpers, dependency injection, etc.</li>
+                            <li>Decouple DOM manipulation from application logic. This improves the testability of the code</li>
+                            <li>Decouple the client side of an application from the server side</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Some Basics</h2>
+                        <ul>
+                            <li>"$scope" variable</li>
+                            <li>"$http" variable</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>ToDo App JavaScript Code</h2>
+<pre><code>var todoApp = angular.module('todoApp', []);
+
+todoApp.controller('TodoController', function($scope, $http) {
+
+  $scope.todos = [];
+
+  // Get all todos
+  $http.get('/todos')
+    .success(function(todos) {
+      $scope.loaded = true;
+      $scope.todos = todos;
+    }).error(function(err) {
+      alert(err);
+    });
+
+  $scope.addTodo = function(title) {
+    $http.post('/todos', {
+      title: title
+    }).success(function(todo) {
+      $scope.newTodoTitle = '';
+      $scope.todos.push(todo);
+    }).error(function(err) {
+      // Alert if there's an error
+      return alert(err.message || "an error occurred");
+    });
+  };
+
+  $scope.changeCompleted = function(todo) {
+    // Update the todo
+    $http.put('/todos/' + todo.id, {
+      completed: todo.completed
+    }).error(function(err) {
+      return alert(err.message || (err.errors && err.errors.completed) || "an error occurred");
+    });
+  };
+
+  $scope.removeCompletedItems = function() {
+    $http.get('/todos', {
+      params: {
+        completed: true
+      }
+    }).success(function(todos) {
+      todos.forEach(function(t) { deleteTodo(t); });
+    });
+  };
+
+  function deleteTodo(todo) {
+    $http.delete('/todos/' + todo.id, {
+      params: {
+        completed: true
+      }
+    }).success(function() {
+      // Find the index of an object with a matching id
+      var index = $scope.todos.indexOf(
+          $scope.todos.filter(function(t) {
+            return t.id === todo.id;
+          })[0]);
+
+      if (index !== -1) {
+        $scope.todos.splice(index, 1);
+      }
+    }).error(function(err) {
+      alert(err.message || "an error occurred");
+    });
+  }
+
+});
+</code></pre>
+                    </section>
+                    <section>
+                        <h2>ToDo App HTML</h2>
+<pre><code>&lt;html ng-app=&quot;todoApp&quot;&gt;<br/>&lt;head&gt;&lt;!--import CSS, AngularJS, and Controller--&gt;&lt;/head&gt;<br/>&lt;body&gt;<br/>  &lt;div ng-controller=&quot;TodoController&quot; ng-cloak&gt;<br/>    &lt;h1&gt;Tasks&lt;/h1&gt;<br/>    &lt;p id=&quot;empty&quot; ng-hide=&quot;todos.length || !loaded&quot;&gt;You don't have any todos! Add one now:&lt;/p&gt;<br/>    &lt;ul id=&quot;todos&quot;&gt;<br/>      &lt;li ng-repeat=&quot;todo in todos&quot;&gt;<br/>        &lt;label class=&quot;checkbox&quot;&gt;<br/>          &lt;input type=&quot;checkbox&quot; ng-model=&quot;todo.completed&quot; ng-change=&quot;changeCompleted(todo)&quot; /&gt;<br/>          {{todo.title}}<br/>        &lt;/label&gt;<br/>      &lt;/li&gt;<br/>    &lt;/ul&gt;<br/>    &lt;form class=&quot;form-inline&quot;&gt;<br/>      &lt;input id=&quot;todo-title&quot; type=&quot;text&quot; ng-model=&quot;newTodoTitle&quot; /&gt;<br/>      &lt;button id=&quot;add-btn&quot; class=&quot;btn btn-success&quot; ng-click=&quot;addTodo(newTodoTitle)&quot;&gt;Add&lt;/button&gt;<br/>    &lt;/form&gt;<br/>    &lt;p&gt;<br/>      &lt;a href id=&quot;remove-completed-btn&quot; ng-click=&quot;removeCompletedItems()&quot;&gt;Remove completed items&lt;/a&gt;<br/>    &lt;/p&gt;<br/>  &lt;/div&gt;<br/>&lt;/body&gt;<br/>&lt;/html&gt;</code></pre>
+                    </section>
                 </section>
-                
-                <section>
-					<section class="landscape" data-active="utility-libraries">
+                    
+				<section>
+                    <section class="landscape" data-active="utility-libraries">
+                    </section>
+                    
+                    <section>
+						<h1>Clementine</h1>
+                        <p>A lightweight set of tools for building pattern agnostic single-page web applications.</p>
 					</section>
+                    <section>
+                        <h2>What does it have?</h2>
+                        <ul>
+                            <li>"Object-oriented" inhertiable objects</li>
+                            <li>Subscriber pattern event mixin</li>
+                            <li>Module dependency management</li>
+                            <li>View controller tree w/DOM helpers</li>
+                            <li>RESTful AJAX service wrapper</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>What is it not?</h2>
+                        <ul>
+                            <li>An MVC framework</li>
+                            <li>A rigid design pattern to follow</li>
+                            <li>A library of UI widgets</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Why use it?</h2>
+                        <ul>
+                            <li>It's componentized, use as much or little as you want</li>
+                            <li>Interoperates with any other frameworks and libraries</li>
+                            <li>Enforces clean decoupled client application design</li>
+                            <li>It's lightweight, 21kb or 7kb gzipped</li>
+                        </ul>
+                    </section>
+                    
                     <section>
 						<h1>Knockout</h1>
 					</section>
@@ -257,11 +439,54 @@
 							<li>Good for building complex forms</li>
 						</ul>
 					</section>
+                    
                 </section>
                 
                 <section>
 					<section class="landscape" data-active="testing-tools">
 					</section>
+                    
+                    <section>
+                        <h2>Mocha, QUnit, Jasmine, Chai, ExpectJS</h2>
+                        <p>TDD/BDD unit testing frameworks for front-end javascript.</p>
+                    </section>
+                    <section>
+                        <h2>Test Driven Development (Mocha)</h2>
+<pre><code>describe('#indexOf()', function(){
+    it('should return -1 when not present', function(){
+        [1,2,3].indexOf(4).should.equal(-1);
+    });
+});</code></pre>
+                    </section>
+                    <section>
+                        <h2>Behavior Driven Development (Mocha)</h2>
+<pre><code>suite('Array', function(){
+  
+  setup(function(){
+    // ...
+  });
+
+  suite('#indexOf()', function(){
+    test('should return -1 when not present', function(){
+      assert.equal(-1, [1,2,3].indexOf(4));
+    });
+  });
+
+});
+</code></pre>
+                    </section>
+                    <section>
+                        <h1>PhantomJS</h1>
+                        <p>A headless command-line webkit browser for running automated unit tests.</p>
+                    </section>
+                    <section>
+                        <h2>What does it have?</h2>
+                        <ul>
+                            <li>Webkit support with native DOM, CSS, JSON, Canvas, and SVG support.</li>
+                            <li>Use for running unit tests in the command line without a browser.</li>
+                        </ul>
+                    </section>
+                    
                 </section>
                 
                 <section>
@@ -285,8 +510,24 @@
                 </section>
                 
                 <section>
+                    
 					<section class="landscape" data-active="build-tools">
 					</section>
+                    
+                    <section>
+                        <h1>Grunt</h1>
+                        <p>A javascript automated task runner written in NodeJS.</p>
+                    </section>
+                    <section>
+                        <h2>What does it have?</h2>
+                        <ul>
+                            <li>Running automated testing libraries</li>
+                            <li>Code linting and syntax checking</li>
+                            <li>File manipulating and minification</li>
+                            <li>Automated image compression</li>
+                            <li>Deployments</li>
+                        </ul>
+                    </section>
                 </section>
                 
                 <section>
