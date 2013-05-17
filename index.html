@@ -4,15 +4,153 @@
         <meta charset="utf-8" />
         <title>Modern JavaScript Frameworks</title>
         <meta name="description" content="A presentation over many of the currently popular JavaScript frameworks in use today." />
-        <meta name="author" content="Brett Davis @hctv19, Christopher Miller @christophermllr, Kevin Kinnebrew @brew20k, Letteer Lewis @Letteer" />
+        <meta name="author" content="Brett Davis @hctv19, Kevin Kinnebrew @brew20k, Letteer Lewis @letteer, Christopher Miller @christophermllr" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <link rel="stylesheet" href="css/reveal.min.css" />
         <link rel="stylesheet" href="css/theme/wmp.css" id="theme" />
         <link rel="stylesheet" href="lib/css/tomorrow.css" />
+        <script src="lib/js/jquery-2.0.0.min.js"></script>
         <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
         <![endif]-->
+        <script id="landscapeTemplate" type="text/html"><h2>JavaScript Tools</h2>
+            <table>
+                <tr>
+                    <td class="dom-abstraction">
+                        <div>DOM Abstraction</div>
+                        <ul>
+                            <li>Prototype</li>
+                            <li>YUI</li>
+                            <li>jQuery</li>
+                            <li>Mootools</li>
+                            <li>ExtJS</li>
+                            <li>Script.aculo.us</li>
+                            <li>Dojo</li>
+                        </ul>
+                    </td>
+                    <td class="mv-frameworks">
+                        <div>MV? Frameworks</div>
+                        <ul>
+                            <li>Ember</li>
+                            <li>Angular</li>
+                            <li>Backbone</li>
+                            <li>Spine</li>
+                            <li>CanJS</li>
+                        </ul>
+                    </td>
+                    <td class="utility-libraries">
+                        <div>Utility Libraries</div>
+                        <ul>
+                            <li>Clementine</li>
+                            <li>Underscore</li>
+                            <li>Knockout</li>
+                            <li>Socket.io</li>
+                            <li>RequireJS</li>
+                            <li>Lodash</li>
+                        </ul>
+                    </td>
+                    <td class="testing-tools">
+                        <div>Testing Tools</div>
+                        <ul>
+                            <li>Mocha</li>
+                            <li>QUnit</li>
+                            <li>Jasmine</li>
+                            <li>JSHint</li>
+                            <li>CSSLint</li>
+                            <li>Chai</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="templating">
+                        <div>Templating</div>
+                        <ul>
+                            <li>Handlebars</li>
+                            <li>Mustache</li>
+                            <li>EJS</li>
+                            <li>HAML</li>
+                        </ul>
+                    </td>
+                    <td class="ui-frameworks">
+                        <div>UI Frameworks</div>
+                        <ul>
+                            <li>jQuery Mobile</li>
+                            <li>SenchaTouch</li>
+                            <li>KendoUI</li>
+                        </ul>
+                    </td>
+                    <td class="ui-component-libraries">
+                        <div>UI Component Libraries</div>
+                        <ul>
+                            <li>jQuery UI</li>
+                            <li>Bootstrap</li>
+                            <li>Ratchet</li>
+                        </ul>
+                    </td>
+                    <td class="pseudo-languages">
+                        <div>Pseudo Languages</div>
+                        <ul>
+                            <li>Coffeescript</li>
+                            <li>Typescript</li>
+                            <li>Dart</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="build-tools">
+                        <div>Build Tools</div>
+                        <ul>
+                            <li>Grunt</li>
+                            <li>Yeoman</li>
+                            <li>PhantomJS</li>
+                        </ul>
+                    </td>
+                    <td class="package-managers">
+                        <div>Package Managers</div>
+                        <ul>
+                            <li>NPM</li>
+                            <li>Bower</li>
+                        </ul>
+                    </td>
+                    <td class="preprocessors">
+                        <div>Preprocessors</div>
+                        <ul>
+                            <li>SASS</li>
+                            <li>LESS</li>
+                        </ul>
+                    </td>
+                    <td class="node">
+                        <div>None of the Above!</div>
+                        <ul>
+                            <li>Node.js</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </script>
+        <script>
+            
+            function jToEl(el) {
+                var div = document.createElement('div');
+                div.appendChild(el.cloneNode(true));
+                var contents = div.innerHTML;
+                div = null;
+                return contents;
+            }
+            
+            $(document).ready(function() {
+                var landscapeText = $("#landscapeTemplate").text();
+                $("section.landscape").each(function() {
+                    var activeClass = $(this).attr("data-active");
+                    var $landscapeText = $(landscapeText);
+                    if (activeClass) {
+                        $landscapeText.find("td." + activeClass).addClass("active");
+                    }
+                    $(this).html(jToEl($landscapeText[0]) + jToEl($landscapeText[2]));
+                });
+            });
+        </script>
     </head>
     <body>
         <div class="reveal">
@@ -72,133 +210,19 @@
                 </section>
                 
                 <section>
-					<section>
-						<h1>Current Landscape</h1>
-					</section>
-					<section class="landscape">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div>Libraries</div>
-                                    <ul>
-                                        <li>Prototype</li>
-                                        <li>YUI</li>
-                                        <li>jQuery</li>
-                                        <li>Mootools</li>
-                                        <li>ExtJS</li>
-                                        <li>Script.aculo.us</li>
-                                        <li>Dojo</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <div>Front-end Architecture Frameworks</div>
-                                    <ul>
-                                        <li>Clementine</li>
-                                        <li>Ember</li>
-                                        <li>Angular</li>
-                                        <li>Backbone</li>
-                                        <li>Spine</li>
-                                        <li>CanJS</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <div>Utility Libraries</div>
-                                    <ul>
-                                        <li>Underscore</li>
-                                        <li>Knockout</li>
-                                        <li>Socket.io</li>
-                                        <li>RequireJS</li>
-                                        <li>Lodash</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <div>Testing Tools</div>
-                                    <ul>
-                                        <li>Mocha</li>
-                                        <li>QUnit</li>
-                                        <li>Jasmine</li>
-                                        <li>JSHint</li>
-                                        <li>CSSLint</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>Templating</div>
-                                    <ul>
-                                        <li>Handlebars</li>
-                                        <li>Mustache</li>
-                                        <li>EJS</li>
-                                        <li>HAML</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <div>Pseudo Languages</div>
-                                    <ul>
-                                        <li>Coffeescript</li>
-                                        <li>Typescript</li>
-                                        <li>Dart</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <div>UI Frameworks</div>
-                                    <ul>
-                                        <li>jQuery Mobile</li>
-                                        <li>SenchaTouch</li>
-                                        <li>KendoUI</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <div>UI Component Libraries</div>
-                                    <ul>
-                                        <li>jQuery UI</li>
-                                        <li>Bootstrap</li>
-                                        <li>Rachet</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>Build Tools</div>
-                                    <ul>
-                                        <li>Grunt</li>
-                                        <li>Yeoman</li>
-                                        <li>PhantomJS</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <div>Package Managers</div>
-                                    <ul>
-                                        <li>NPM</li>
-                                        <li>Bower</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <div>Preprocessors</div>
-                                    <ul>
-                                        <li>SASS</li>
-                                        <li>LESS</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <div>None of the Above!</div>
-                                    <ul>
-                                        <li>Node.js</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        </table>
+					<section class="landscape" data-active="">
 					</section>
                 </section>
                 
                 <section>
-				    <h1>Individual Tools</h1>
-				</section>
-                
-                
+					<section class="landscape" data-active="dom-abstraction">
+					</section>
+                </section>
                 
                 <section>
-					<section>
+					<section class="landscape" data-active="mv-frameworks">
+					</section>
+                    <section>
 						<h1>MVC, MVVM, MVWTF</h1>
 					</section>
                     <section>
@@ -221,7 +245,9 @@
                 </section>
                 
                 <section>
-					<section>
+					<section class="landscape" data-active="utility-libraries">
+					</section>
+                    <section>
 						<h1>Knockout</h1>
 					</section>
                     <section>
@@ -233,9 +259,57 @@
 					</section>
                 </section>
                 
+                <section>
+					<section class="landscape" data-active="testing-tools">
+					</section>
+                </section>
+                
+                <section>
+					<section class="landscape" data-active="templating">
+					</section>
+                </section>
+                
+                <section>
+					<section class="landscape" data-active="ui-frameworks">
+					</section>
+                </section>
+                
+                <section>
+					<section class="landscape" data-active="ui-component-libraries">
+					</section>
+                </section>
+                
+                <section>
+					<section class="landscape" data-active="pseudo-languages">
+					</section>
+                </section>
+                
+                <section>
+					<section class="landscape" data-active="build-tools">
+					</section>
+                </section>
+                
+                <section>
+					<section class="landscape" data-active="package-managers">
+					</section>
+                </section>
+                
+                <section>
+					<section class="landscape" data-active="preprocessors">
+					</section>
+                </section>
+                
+                <section>
+					<section class="landscape" data-active="node">
+					</section>
+                </section>
                 
                 <section>
                     <h2>Thanks!</h2>
+                    <h4>Brett Davis <code>@hctv19</code></h4>
+                    <h4>Kevin Kinnebrew <code>@brew20k</code></h4>
+                    <h4>Letteer Lewis <code>@letteer</code></h4>
+                    <h4>Christopher Miller <code>@christophermllr</code></h4>
                 </section>
             </div>
         </div>
