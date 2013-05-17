@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <title>Modern JavaScript Frameworks</title>
         <meta name="description" content="A presentation over many of the currently popular JavaScript frameworks in use today." />
-        <meta name="author" content="Brett Davis, Christopher Miller, Kevin Kinnebrew, Letteer Lewis" />
+        <meta name="author" content="Brett Davis @hctv19, Christopher Miller @christophermllr, Kevin Kinnebrew @brew20k, Letteer Lewis @Letteer" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <link rel="stylesheet" href="css/reveal.min.css" />
@@ -17,99 +17,209 @@
     <body>
         <div class="reveal">
             <div class="slides">
+                
                 <section>
                     <h1>Modern JavaScript Frameworks</h1>
-                    <p style="text-align: left;">feature Underscore, jQuery, Knockout, Backbone, Angular, Bootstrap, and Clementine</p>
+                    <p>featuring Underscore, jQuery, Knockout, Backbone, Angular, Bootstrap, Clementine, and more!</p>
                 </section>
+                
                 <section>
-                    <h2>Introduction</h2>
-                    <div style="text-align: left;">
+                    <h2>Presentation Layout</h2>
+                    <ul>
+                        <li>JavaScript Evolution</li>
+                        <li>Current Landscape</li>
+                        <li>Individual Tools</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <section>
+                        <h1>JavaScript Evolution</h1>
+                    </section>
+                    <section>
+                        <h2>DOM Manipulation</h2>
                         <ul>
-							<li>Terminology Sync Up</li>
-                            <li>Evolution of Frameworks</li>
-							<li>Individual Frameworks</li>
+                            <li>Early frameworks focused on accessing the DOM (the 'query' in jQuery)</li>
+                            <li>Many added utility functions for animation, cross-browser AJAX, templating</li>
+                            <li>jQuery beat out other similar tools such as MooTools, Prototype to become nearly ubiquitous</li>
+                            <li>No one was thinking true "front-end architecture" yet</li>
                         </ul>
-                    </div>
+                    </section>
+                    <section>
+                        <h2>UI Widgetization/Frameworks</h2>
+                        <ul>
+                            <li>Focused on packaging re-useable interactive UI components</li>
+                            <li>jQuery UI, ExtJS, Kendo UI, Bootstrap</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Web Application Frameworks</h2>
+                        <ul>
+                            <li>Mature JavaScript Frameworks designed to facilitate building MVVM web applications</li>
+                            <li>Usually include templating, AJAX CRUD, and model binding</li>
+                            <li>Knockout, Backbone.js, AngularJS, Batman.js, Ember.js</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Pure JavaScript Libraries</h2>
+                        <ul>
+                            <li>Small, special purpose libraries</li>
+                            <li>Underscore.js: LINQ-like array helpers and transforms along with some other helpful tools such as templating and function throttling</li>
+                            <li>MochiKit</li>
+                            <li>Socket.io: Enables realtime web applications via WebSockets with fallbacks to Flash, JSONP polling, and AJAX long polling</li>
+                        </ul>
+                    </section>
                 </section>
+                
                 <section>
 					<section>
-						<h1>Terminology Sync Up</h1>
+						<h1>Current Landscape</h1>
 					</section>
+					<section class="landscape">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div>Libraries</div>
+                                    <ul>
+                                        <li>Prototype</li>
+                                        <li>YUI</li>
+                                        <li>jQuery</li>
+                                        <li>Mootools</li>
+                                        <li>ExtJS</li>
+                                        <li>Script.aculo.us</li>
+                                        <li>Dojo</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div>Front-end Architecture Frameworks</div>
+                                    <ul>
+                                        <li>Clementine</li>
+                                        <li>Ember</li>
+                                        <li>Angular</li>
+                                        <li>Backbone</li>
+                                        <li>Spine</li>
+                                        <li>CanJS</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div>Utility Libraries</div>
+                                    <ul>
+                                        <li>Underscore</li>
+                                        <li>Knockout</li>
+                                        <li>Socket.io</li>
+                                        <li>RequireJS</li>
+                                        <li>Lodash</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div>Testing Tools</div>
+                                    <ul>
+                                        <li>Mocha</li>
+                                        <li>QUnit</li>
+                                        <li>Jasmine</li>
+                                        <li>JSHint</li>
+                                        <li>CSSLint</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>Templating</div>
+                                    <ul>
+                                        <li>Handlebars</li>
+                                        <li>Mustache</li>
+                                        <li>EJS</li>
+                                        <li>HAML</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div>Pseudo Languages</div>
+                                    <ul>
+                                        <li>Coffeescript</li>
+                                        <li>Typescript</li>
+                                        <li>Dart</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div>UI Frameworks</div>
+                                    <ul>
+                                        <li>jQuery Mobile</li>
+                                        <li>SenchaTouch</li>
+                                        <li>KendoUI</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div>UI Component Libraries</div>
+                                    <ul>
+                                        <li>jQuery UI</li>
+                                        <li>Bootstrap</li>
+                                        <li>Rachet</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>Build Tools</div>
+                                    <ul>
+                                        <li>Grunt</li>
+                                        <li>Yeoman</li>
+                                        <li>PhantomJS</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div>Package Managers</div>
+                                    <ul>
+                                        <li>NPM</li>
+                                        <li>Bower</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div>Preprocessors</div>
+                                    <ul>
+                                        <li>SASS</li>
+                                        <li>LESS</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div>None of the Above!</div>
+                                    <ul>
+                                        <li>Node.js</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+					</section>
+                </section>
+                
+                <section>
+				    <h1>Individual Tools</h1>
+				</section>
+                
+                
+                
+                <section>
 					<section>
-						<div style="text-align: left;">
-							<h2>MVC: Model-View-Controller</h2>
-							<ul>
-								<li>M - Application data, business rules, logic, and functions</li>
-								<li>V - A representation of data, such as a web page.</li>
-								<li>C - Mediates input, converting it to commands for the model or view</li>                            
-							</ul>
-						</div>
+						<h1>MVC, MVVM, MVWTF</h1>
+					</section>
+                    <section>
+                        <h2>MVC: Model-View-Controller</h2>
+                        <ul>
+                            <li>M - Application data, business rules, logic, and functions</li>
+                            <li>V - A representation of data, such as a web page.</li>
+                            <li>C - Mediates input, converting it to commands for the model or view</li>                            
+                        </ul>
 					</section>
 					<section>
 						<h2>MVVM: Model-View-ViewModel</h2>
-						<h3>Targeted to UI development - data binding, interaction logic</h3>
 						<ul>
+                            <li>Targeted to UI development - data binding, interaction logic</li>
 							<li>M - The real state of content</li>
 							<li>V - Elements displayed by the GUI such as buttons, labels, and other controls</li>
 							<li>VM - Acts as a converter that changes model information into view information and passes commands from the view into the model</li>
 						</ul>
 					</section>
                 </section>
-                <section>
-                    <section>
-                        <h1>Evolution of Frameworks</h1>
-                    </section>
-                    <section>
-                        <h2>DOM Manipulation</h2>
-                        <div style="text-align: left;">
-                            <ul>
-                                <li>Early frameworks focused on accessing the DOM (the 'query' in jQuery)</li>
-                                <li>Many added utility functions for animation, cross-browser AJAX, templating</li>
-                                <li>jQuery beat out other similar tools such as MooTools, Prototype to become nearly ubiquitous</li>   
-                            </ul>
-                            <br />
-                        </div>
-                    </section>
-                    <section>
-                        <h2>UI Widgetization/Frameworks</h2>
-                        <div style="text-align: left;">
-                            <ul>
-                                <li>jQuery UI, ExtJS, Kendo UI</li>
-                                <li>Focused on packaging re-useable interactive UI components</li>
-                            </ul>
-                        </div>
-                    </section>
-                    <section>
-                        <h2>Web Application Frameworks</h2>
-                        <div style="text-align: left;">
-                            <ul>
-                                <li>Knockout</li>
-                                <li>Backbone.js</li>
-								<li>AngularJS</li>
-								<li>Batman.js (lol)</li>
-								<li>Ember.js</li>
-                            </ul>
-                        </div>
-						<br/>
-						<p style="text-align: left;">
-							Mature JavaScript Frameworks designed to facilitate building MVVM web applications (usually include templating, ajax crud, model binding)
-						</p>
-                    </section>
-                    <section>
-                        <h2>Pure JavaScript Libraries</h2>
-                        <div style="text-align: left;">
-                            <ul>
-                                <li>Underscore.js</li>
-								<li>MochiKit</li>
-								<li>Socket.io</li>
-                            </ul>
-                        </div>
-						<p style="text-align: left;">
-						These tend to small, special purpose libraries. Underscore focuses on providing LINQ-like array 
-						helpers and transforms along with some other helpful tools such as templating and function throttling.
-						</p>
-                    </section>
-                </section>
+                
                 <section>
 					<section>
 						<h1>Knockout</h1>
@@ -122,11 +232,10 @@
 						</ul>
 					</section>
                 </section>
+                
+                
                 <section>
                     <h2>Thanks!</h2>
-                    <div>
-                        <br />
-                    </div>
                 </section>
             </div>
         </div>

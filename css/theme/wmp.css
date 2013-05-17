@@ -18,6 +18,34 @@
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
+
+p, ul, li {
+    text-align:left;
+}
+
+.landscape div {
+    font-size: 20px;
+}
+.landscape li {
+    font-size: 16px;
+}
+.landscape ul {
+  margin: 0;
+  padding: 0;
+}
+
+.landscape li:before {
+  content: "";
+  display: block;
+  height: inherit;
+  width: inherit;
+  background-image: none;
+  background-repeat: no-repeat;
+  left: inherit;
+  top: inherit;
+  position: relative;
+}
+
 body {
   background-color: #F9F9F9;
 }
