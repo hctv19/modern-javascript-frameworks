@@ -1,7 +1,7 @@
 # Rapid Prototyping
 ### With Node.js, MongoDB, and Heroku
 
-This presentation covers rapid application prototyping by using the Node/Mongo/Heroku stack
+This presentation covers rapid application prototyping by using the Node/Mongo/Heroku stack.
 
 Slides made with [reveal.js](http://lab.hakim.se/reveal-js/) on [rvl.io](http://www.rvl.io/).
 
